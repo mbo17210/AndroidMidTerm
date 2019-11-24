@@ -23,14 +23,15 @@ class MainActivity : AppCompatActivity() {
 
         // OU Calendar url
         // TODO: change this to your url after you have endpoints
-        val url = "https://calendar.ou.edu/live/json/events"
+        val url = "https://androidrandomnum.appspot.com/"
 
         // OU calendar returns a Json Array, if your website returns a Json Object then use JsonObjectRequest
-        val stringRequest = JsonArrayRequest(Request.Method.GET, url, null,
-            Response.Listener<JSONArray> { response ->
-                val event = response[0] as JSONObject
+
+        val stringRequest = JsonObjectRequest(Request.Method.GET, url, null,
+            Response.Listener{ response ->
+                val event = response as JSONObject
                 // eventTitle is the id for the textbox in activity_main.xml
-                eventTitle.text = "Event title is : ${event.getString("title")}"
+                eventTitle.text = "Random Number is: ${event.getInt("num")}"
             },
             Response.ErrorListener { eventTitle.text = "That didn't work" })
 
