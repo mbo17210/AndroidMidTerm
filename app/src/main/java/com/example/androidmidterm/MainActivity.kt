@@ -21,11 +21,11 @@ class MainActivity : AppCompatActivity() {
         // Volley uses internet permissions which needs to be enabled in the AndroidManifest.xml
         val queue = Volley.newRequestQueue(this)
 
-        // OU Calendar url
+        // Android Midterm Number Endpoint
         // TODO: change this to your url after you have endpoints
         val url = "https://androidrandomnum.appspot.com/"
 
-        // OU calendar returns a Json Array, if your website returns a Json Object then use JsonObjectRequest
+        // Android Midterm Endpoint will return a JSON Object. Get Object and text in it to display on screen
 
         val stringRequest = JsonObjectRequest(Request.Method.GET, url, null,
             Response.Listener{ response ->
